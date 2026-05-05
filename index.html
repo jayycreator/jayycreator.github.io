@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What I Believe About Scripture</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #8B6914;
+    --gold-light: #F5EDD6;
+    --cream: #FAF7F0;
+    --text: #2C2416;
+    --muted: #6B5A3E;
+    --border: #DDD0B0;
+    --white: #FFFFFF;
+    --section-bg: #FFFFF8;
+  }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 72px 24px 60px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.3;
+    max-width: 680px;
+    margin: 0 auto 24px;
+  }
+  .hero-intro {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .hero-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto;
+  }
+
+  /* NAV PILLS */
+  .nav-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .nav-bar::-webkit-scrollbar { display: none; }
+  .nav-inner {
+    display: inline-flex;
+    gap: 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .nav-bar a {
+    display: inline-block;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-bar a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* MAIN LAYOUT */
+  .main { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* SECTION */
+  .section {
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 24px;
+  }
+  .section p {
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .section p:last-of-type { margin-bottom: 0; }
+
+  /* SCRIPTURE PULL QUOTE */
+  .scripture {
+    border-left: 3px solid var(--gold);
+    background: var(--gold-light);
+    padding: 20px 24px;
+    margin: 28px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .scripture p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 8px !important;
+  }
+  .scripture cite {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  /* KEY POINT CARDS */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .card-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+
+  /* FAQ ACCORDION */
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: var(--white);
+    overflow: hidden;
+  }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 18px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .faq-question:hover { color: var(--gold); }
+  .faq-arrow {
+    font-size: 18px;
+    color: var(--gold);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .faq-question.open .faq-arrow { transform: rotate(180deg); }
+  .faq-answer {
+    display: none;
+    padding: 0 20px 20px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.75;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .faq-answer.visible { display: block; }
+
+  /* CLOSING NOTE */
+  .closing {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 36px 40px;
+    margin-top: 48px;
+    text-align: center;
+  }
+  .closing h3 {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .closing p { color: var(--muted); max-width: 520px; margin: 0 auto; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">A Personal Statement of Faith</div>
+  <h1>What I Believe About Scripture</h1>
+  <p class="hero-intro">This isn't meant to be a debate. It's an invitation — to read alongside me, ask honest questions, and consider what the Word of God says in full.</p>
+  <div class="hero-divider"></div>
+</div>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#foundation">The Law</a>
+    <a href="#character">God's Character</a>
+    <a href="#yeshua">Yeshua's Teaching</a>
+    <a href="#context">1st Century Context</a>
+    <a href="#paul">Paul</a>
+    <a href="#food">Food Laws</a>
+    <a href="#feasts">Feast Days</a>
+    <a href="#salvation">Law & Salvation</a>
+    <a href="#faq">Common Questions</a>
+    <a href="#practical">Application</a>
+  </div>
+</nav>
+
+<div class="main">
+
+  <!-- 1. FOUNDATION -->
+  <section class="section" id="foundation">
+    <div class="section-label">Starting Point</div>
+    <h2>What Is "The Law"?</h2>
+    <p>When most English readers see the word "law" in the New Testament, they picture a legal code — rules to follow or escape. But the original word is <em>Torah</em>, which in Hebrew simply means <em>instruction</em> or <em>teaching</em>. It is God's guidance for how to live in relationship with Him.</p>
+    <p>Understanding this distinction matters enormously. There is a difference between God's commandments as given in Scripture, the oral traditions developed by religious leaders over centuries, and the specific covenant conditions given at Sinai. When Yeshua (Jesus) and Paul talk about "the law," they are often speaking to very different things — and context determines which is which.</p>
+    <div class="scripture">
+      <p>"Your word is a lamp to my feet and a light to my path."</p>
+      <cite>Psalm 119:105</cite>
+    </div>
+    <p>My belief is not about following random religious rules. It's about taking God's own instructions seriously — the ones He gave, in the way He meant them.</p>
+  </section>
+
+  <!-- 2. GOD'S CHARACTER -->
+  <section class="section" id="character">
+    <div class="section-label">The Foundation</div>
+    <h2>The Character of God & His Commands</h2>
+    <p>One of the most important questions I've sat with is this: if God called something good, pure, holy, and life-giving — why would He abolish it?</p>
+    <div class="scripture">
+      <p>"For I the LORD do not change."</p>
+      <cite>Malachi 3:6</cite>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Eternal</div>
+        <p>"The grass withers, the flower fades, but the word of our God will stand forever." — Isaiah 40:8</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Good</div>
+        <p>"The law of the LORD is perfect, refreshing the soul." — Psalm 19:7</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Life-Giving</div>
+        <p>"Keep my decrees and laws, for the person who obeys them will live by them." — Leviticus 18:5</p>
+      </div>
+    </div>
+    <p>If God's commands are eternal, good, and life-giving — this shapes how I read every passage about the law in the New Testament. I don't start from the assumption that they were done away with. I start by asking: what is actually being said here?</p>
+  </section>
+
+  <!-- 3. YESHUA'S TEACHING -->
+  <section class="section" id="yeshua">
+    <div class="section-label">What Yeshua Actually Said</div>
+    <h2>Did Jesus Abolish the Torah?</h2>
+    <p>This is the passage I return to most often. Yeshua's own words, before anything Paul wrote, before anything else:</p>
+    <div class="scripture">
+      <p>"Do not think that I have come to abolish the Law or the Prophets; I have not come to abolish them but to fulfill them. For truly I tell you, until heaven and earth disappear, not the smallest letter, not the least stroke of a pen, will by any means disappear from the Law until everything is accomplished."</p>
+      <cite>Matthew 5:17–18</cite>
+    </div>
+    <p>The word "fulfill" in this passage (Greek: <em>plēroō</em>) means to complete or make full — not to finish or terminate. We use it similarly when we say someone "fulfilled their duty." Yeshua was showing the deepest and truest meaning of Torah, not ending it.</p>
+    <p>In Matthew 15 and Mark 7, Yeshua's disagreement is specifically with the <em>oral traditions</em> of the Pharisees — the handwashing rules, the elaborate fence-laws — not with written Torah. The bread and handwashing context of Mark 7 is crucial: the discussion is about ritual purity practices, not a reclassification of animals for eating.</p>
+  </section>
+
+  <!-- 4. CONTEXT -->
+  <section class="section" id="context">
+    <div class="section-label">Reading Carefully</div>
+    <h2>Understanding the First-Century World</h2>
+    <p>Most of us read a first-century Jewish text through twenty-first century Western eyes — and we miss a great deal. Here are things that change how I read:</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">What counted as "food"</div>
+        <p>In a Jewish context, "food" meant what Torah permitted. An unclean animal simply wasn't considered food to begin with.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Oral Law vs. Written Torah</div>
+        <p>The Pharisees had developed a vast body of oral tradition layered on top of Scripture. Much of the New Testament tension is about this, not Torah itself.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Gentile readers</div>
+        <p>As the New Testament spread to Greek and Roman audiences, readers unfamiliar with Jewish life sometimes misread what Jewish authors assumed was understood.</p>
+      </div>
+    </div>
+    <p>This doesn't make the New Testament confusing — it makes it richer. When I understand the world the authors lived in, the text opens up.</p>
+  </section>
+
+  <!-- 5. PAUL -->
+  <section class="section" id="paul">
+    <div class="section-label">A Common Stumbling Block</div>
+    <h2>Paul: Misunderstood, Not Contradictory</h2>
+    <p>I want to be upfront: Paul is the author most often used to argue against what I believe. I don't dismiss those passages — I've wrestled with them carefully.</p>
+    <div class="scripture">
+      <p>"His letters contain some things that are hard to understand, which ignorant and unstable people distort, as they do the other Scriptures, to their own destruction."</p>
+      <cite>2 Peter 3:16</cite>
+    </div>
+    <p>When Paul says we are "not under the law," he is addressing the idea of earning justification through law-keeping — not giving permission to disregard God's commandments. He consistently defines sin using the Torah. "All things are clean" in Romans 14 is about meat sacrificed to idols and matters of conscience within an already Torah-observant community — not a blanket permission for anything.</p>
+    <p>Paul himself continued to keep Torah, observe feasts, and live as a Jew throughout his ministry (Acts 21:24, Acts 18:21). His letters, read in their original audience and situation, are consistent — not contradictory — with what Yeshua taught.</p>
+  </section>
+
+  <!-- 6. FOOD LAWS -->
+  <section class="section" id="food">
+    <div class="section-label">Practical Belief</div>
+    <h2>Food Laws: Clean and Unclean</h2>
+    <p>Leviticus 11 and Deuteronomy 14 describe what God designated as food for His people. I believe these distinctions still matter — not as a way to earn favor, but because God made them and hasn't revoked them.</p>
+    <p>Two passages often raised against this:</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Acts 10 — Peter's Vision</div>
+        <p>Peter himself interprets the vision: it was about people, not animals. "God has shown me that I should not call any person impure or unclean." (Acts 10:28) Peter never eats anything in the vision.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Mark 7 — "All foods clean"</div>
+        <p>The context is handwashing, not dietary categories. What Yeshua declares clean is food eaten without performing ritual handwashing — not a reclassification of animals.</p>
+      </div>
+    </div>
+    <p>I hold this belief with humility — I understand most Christians read these passages differently. But I've looked at the original contexts carefully, and this is where I stand.</p>
+  </section>
+
+  <!-- 7. FEAST DAYS -->
+  <section class="section" id="feasts">
+    <div class="section-label">Sacred Time</div>
+    <h2>Feast Days & Appointed Times</h2>
+    <p>Leviticus 23 lays out what God called His "appointed times" — seasons set apart not just for ancient Israel, but declared as belonging to Him. They are not called Israel's feasts; they are called the LORD's feasts.</p>
+    <div class="scripture">
+      <p>"These are my appointed festivals, the appointed festivals of the LORD, which you are to proclaim as sacred assemblies."</p>
+      <cite>Leviticus 23:2</cite>
+    </div>
+    <p>What makes these profound for me is how clearly they point to Yeshua. Passover — His death. Firstfruits — His resurrection. Shavuot (Pentecost) — the giving of the Spirit. The spring feasts were fulfilled at His first coming. The fall feasts — Trumpets, Atonement, Tabernacles — point forward to His return. Keeping these is not burdensome to me; it feels like living inside God's calendar and watching prophecy unfold in real time.</p>
+  </section>
+
+  <!-- 8. LAW & SALVATION -->
+  <section class="section" id="salvation">
+    <div class="section-label">The Most Important Clarification</div>
+    <h2>Law and Salvation Are Not the Same Thing</h2>
+    <p>I want to be very clear about this, because it is where I am most often misunderstood:</p>
+    <div class="scripture">
+      <p>"For it is by grace you have been saved, through faith — and this is not from yourselves, it is the gift of God — not by works, so that no one can boast."</p>
+      <cite>Ephesians 2:8–9</cite>
+    </div>
+    <p>I believe this fully. Salvation is not earned. No one stands righteous before God because they kept the Sabbath or avoided pork. We are saved by grace through faith in Yeshua — period.</p>
+    <p>But obedience to God's instructions flows from that relationship, not toward it. A child doesn't obey loving parents to earn their love — they obey because they are loved and because those instructions are good. Torah, for me, is the shape of a life that loves God and neighbor. It is response, not requirement for salvation.</p>
+  </section>
+
+  <!-- 9. FAQ -->
+  <section class="section" id="faq">
+    <div class="section-label">Honest Questions</div>
+    <h2>Common Objections</h2>
+    <p>These are the questions I hear most. I've tried to answer them as honestly and briefly as I can here.</p>
+
+    <div style="margin-top: 24px;">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          "Didn't Jesus fulfill the law so we don't have to?"
+          <span class="faq-arrow">&#8964;</span>
+        </button>
+        <div class="faq-answer">
+          "Fulfill" doesn't mean "terminate." We fulfilled our duty, she fulfilled her potential — fulfilling something brings it to its full expression, not its end. Yeshua lived Torah perfectly and showed its deepest meaning. He said explicitly that not a letter would pass until heaven and earth pass away (Matthew 5:18) — and those are still here.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          "Isn't that legalism?"
+          <span class="faq-arrow">&#8964;</span>
+        </button>
+        <div class="faq-answer">
+          Legalism is trusting in law-keeping for salvation or righteousness. I don't believe Torah obedience saves me. I keep these things because I love God and trust His instructions — the same way I'd follow the wisdom of a father I deeply respect. That's not legalism; that's a covenant relationship.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          "What about the New Covenant?"
+          <span class="faq-arrow">&#8964;</span>
+        </button>
+        <div class="faq-answer">
+          The New Covenant in Jeremiah 31 is described as God writing His law on our hearts — not replacing the law with something else. The change is the medium (heart, not stone tablets) and the scope (all people, not just a nation), not the content. The Torah written on hearts is still Torah.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          "Why don't Christians practice this today?"
+          <span class="faq-arrow">&#8964;</span>
+        </button>
+        <div class="faq-answer">
+          That's a fair and important question — and a long one to answer. Briefly: much of early Christianity was Jewish. The separation from Jewish practices happened gradually over centuries, often for political and cultural reasons rather than purely theological ones. History matters here. I'm not saying everyone who doesn't practice these things is wrong in their relationship with God — I'm saying I believe this is what Scripture teaches, and I want to be faithful to it.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          "Are you saying Christians who don't do this aren't saved?"
+          <span class="faq-arrow">&#8964;</span>
+        </button>
+        <div class="faq-answer">
+          Absolutely not. Salvation is by grace through faith — full stop. I have brothers and sisters in Yeshua across many traditions. This is about what I believe faithful obedience looks like for me, not a judgment on others.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. PRACTICAL -->
+  <section class="section" id="practical">
+    <div class="section-label">Living It Out</div>
+    <h2>What This Looks Like Practically</h2>
+    <p>Theology that doesn't touch daily life is just theory. Here's what I actually do:</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">The Sabbath</div>
+        <p>Friday sundown to Saturday sundown — a weekly rest, a deliberate stop from work, a time to gather, pray, and be present with God and family.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Food Laws</div>
+        <p>I follow the dietary guidelines in Leviticus 11 and Deuteronomy 14 — not out of anxiety, but as a daily reminder that my choices are shaped by what God says, not just what's convenient.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">The Feasts</div>
+        <p>I observe the appointed times in Leviticus 23 — Passover, Unleavened Bread, Firstfruits, Shavuot, Trumpets, Atonement, Tabernacles — as seasons of worship and remembrance.</p>
+      </div>
+    </div>
+    <p>I'm not perfect at any of this. I'm learning. If you want to explore any of it, I'm happy to share what I've found — and to listen to what you think too.</p>
+  </section>
+
+  <!-- CLOSING -->
+  <div class="closing">
+    <h3>A Final Word</h3>
+    <p>I share this not to convince you I'm right, but because these beliefs matter deeply to me and I'd rather you understand where I'm coming from. I have deep love and respect for believers in every tradition. If something here has sparked a question, I'd genuinely enjoy talking about it.</p>
+  </div>
+
+</div>
+
+<footer>
+  A personal statement of faith &nbsp;·&nbsp; Shared in love
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('visible');
+    document.querySelectorAll('.faq-answer.visible').forEach(a => a.classList.remove('visible'));
+    document.querySelectorAll('.faq-question.open').forEach(b => b.classList.remove('open'));
+    if (!isOpen) {
+      answer.classList.add('visible');
+      btn.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>
